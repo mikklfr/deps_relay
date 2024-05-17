@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  deps_relay:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./conf:/conf
+      # if you want to share your ssh keys with the container
+      #- ~/.ssh:/root/.ssh
+    depends_on:
+      - minio
+
+  minio:
+    image: minio/minio
+    volumes:
+      - minio_data:/data
+    ports:
+      - 9000:9000
+#       uncomment this to enable the console webui
+#      - 9001:9001
+    environment:
+      MINIO_ROOT_USER: s3AccessKey
+      MINIO_ROOT_PASSWORD: s3SecretKey
+    command: server /data --console-address ":9001"
+
+volumes:
+  minio_data:

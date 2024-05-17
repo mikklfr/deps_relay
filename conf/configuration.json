@@ -1,0 +1,52 @@
+{
+  "server": {
+    "baseUrl": "http://127.0.0.1:8080/flutter",
+    "port": 8080
+  },
+  "flutter": {
+    "enableDebugRoutes": true,
+    "requiresAuthentication": false,
+    "storePackages": true,
+    "useLocalPackages": true,
+    "useHostedUpstreamPackages": true,
+    "useGitPackages": false,
+    "database": {
+      "path": "database"
+    },
+    "storage": {
+      "s3Bucket": "flutter",
+      "s3Region": "us-east-1",
+      "s3Endpoint": "http://minio:9000",
+      "s3AccessKey": "s3AccessKey",
+      "s3SecretKey": "s3SecretKey"
+    },
+    "hostedUpstreams": [
+      {
+        "url": "https://pub.dev"
+      }
+    ],
+    "gitUpstreams": [
+      {
+        "name": "provider",
+        "url": "git@github.com:rrousselGit/provider.git",
+        "subPath": "packages/provider",
+        "sshHost": "github.com"
+      },
+      {
+        "name": "flutter_animate",
+        "url": "https://github.com/gskinner/flutter_animate.git"
+      }
+    ],
+    "users": [
+      {
+        "name": "user",
+        "token": "changeMeInProduction"
+      },
+      {
+        "name": "restricted_user",
+        "token": "shouldBeRandomInProduction",
+        "regex": "bloc(.*)|provider(.*)"
+      }
+    ]
+  }
+}

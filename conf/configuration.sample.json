@@ -1,0 +1,27 @@
+{
+  "server": {
+    "baseUrl": "http://127.0.0.1:8080/flutter",
+    "port": 8080
+  },
+  "flutter": {
+    "enableDebugRoutes": true,
+    "requiresAuthentication": false,
+    "storePackages": true,
+    "useLocalPackages": true,
+    "useHostedUpstreamPackages": true,
+    "useGitPackages": true,
+    "database": {
+      "path": "database"
+    },
+    "storage": {
+      "s3Bucket": "flutter",
+      "s3Region": "us-east-1",
+      "s3Endpoint": "http://minio:9000",
+      "s3AccessKey": "s3AccessKey",
+      "s3SecretKey": "s3SecretKey"
+    },
+    "hostedUpstreams": [],
+    "gitUpstreams": [],
+    "users": []
+  }
+}
